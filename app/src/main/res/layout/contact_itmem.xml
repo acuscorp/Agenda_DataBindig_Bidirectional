@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="contacto"
+            type="com.acuscorp.agenda.ContactObservable" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:onClick="@{contacto::onClick}">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/tv_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="nombre"
+                android:text="@{contacto.nombre}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:maxLines="1"
+                android:layout_alignParentStart="true"/>
+
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/tv_telefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="telefono"
+                android:text="@{contacto.telefono}"
+                android:inputType="phone"
+                android:layout_below="@id/tv_nombre"/>
+
+
+
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/tv_cumple"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/tv_telefono"
+                android:layout_below="@id/tv_nombre"
+                android:hint="@string/formato_fecha"
+                android:text="@{contacto.cumple}"
+                android:inputType="date"
+                />
+            <TextView
+                android:layout_margin="5dp"
+                android:id="@+id/tv_nota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_cumple"
+                android:hint="nota"
+                android:text="@{contacto.nota}"
+                />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+

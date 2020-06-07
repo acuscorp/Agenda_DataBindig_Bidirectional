@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="contacto"
+            type="com.acuscorp.agenda.ContactObservable" />
+    </data>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+            <EditText
+                android:id="@+id/et_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="nombre"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:maxLines="1"
+                android:layout_alignParentStart="true"
+                android:text="@={contacto.nombre}"
+
+                />
+
+            <EditText
+                android:id="@+id/et_telefono"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="telefono"
+                android:inputType="phone"
+                android:layout_below="@id/et_nombre"
+                android:text="@={contacto.telefono}"/>
+
+
+
+            <EditText
+                android:id="@+id/et_cumple"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/et_telefono"
+                android:layout_below="@id/et_nombre"
+                android:hint="@string/formato_fecha"
+                android:inputType="date"
+                android:text="@={contacto.cumple}"
+                />
+            <EditText
+                android:id="@+id/et_nota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_cumple"
+                android:hint="nota"
+                android:text="@={contacto.nota}"
+                />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_nota"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:onClick="@{contacto::onClick}"
+                android:text="SAVE" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
